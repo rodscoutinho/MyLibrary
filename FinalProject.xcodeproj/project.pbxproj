@@ -8,12 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		D20791401E81ACDD00AE6017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D207913F1E81ACDD00AE6017 /* AppDelegate.swift */; };
-		D20791421E81ACDD00AE6017 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20791411E81ACDD00AE6017 /* ViewController.swift */; };
+		D20791421E81ACDD00AE6017 /* LoansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20791411E81ACDD00AE6017 /* LoansViewController.swift */; };
 		D20791451E81ACDD00AE6017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20791431E81ACDD00AE6017 /* Main.storyboard */; };
 		D20791471E81ACDD00AE6017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D20791461E81ACDD00AE6017 /* Assets.xcassets */; };
 		D207914A1E81ACDD00AE6017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20791481E81ACDD00AE6017 /* LaunchScreen.storyboard */; };
 		D20791551E81ACDD00AE6017 /* FinalProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20791541E81ACDD00AE6017 /* FinalProjectTests.swift */; };
 		D20791601E81ACDD00AE6017 /* FinalProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D207915F1E81ACDD00AE6017 /* FinalProjectUITests.swift */; };
+		D207916E1E81AE1A00AE6017 /* FinishedLoanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D207916D1E81AE1A00AE6017 /* FinishedLoanTableViewCell.xib */; };
+		D20791701E81AE8A00AE6017 /* FinishedLoanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D207916F1E81AE8A00AE6017 /* FinishedLoanTableViewCell.swift */; };
+		D20791721E81E06B00AE6017 /* LoanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20791711E81E06B00AE6017 /* LoanTableViewController.swift */; };
+		D20791741E81E56F00AE6017 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20791731E81E56F00AE6017 /* Member.swift */; };
+		D20791761E81E5A600AE6017 /* MembersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20791751E81E5A600AE6017 /* MembersTableViewController.swift */; };
+		D20791781E8210AD00AE6017 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20791771E8210AD00AE6017 /* Book.swift */; };
+		D2594CC41E83131D00CF6793 /* BooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2594CC31E83131D00CF6793 /* BooksTableViewController.swift */; };
+		D2B975C51E847D1900137207 /* AddBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B975C41E847D1900137207 /* AddBookTableViewController.swift */; };
+		D2C8BC8B1E9432DE00F1E116 /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C8BC8A1E9432DE00F1E116 /* Loan.swift */; };
+		D2C8BC921E943FBF00F1E116 /* OpenLoanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C8BC901E943FBF00F1E116 /* OpenLoanTableViewCell.swift */; };
+		D2C8BC931E943FBF00F1E116 /* OpenLoanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C8BC911E943FBF00F1E116 /* OpenLoanTableViewCell.xib */; };
+		D2C8BC961E944C8100F1E116 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C8BC951E944C8100F1E116 /* MapKit.framework */; };
+		D2C8BC981E944CEF00F1E116 /* AddMemberTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C8BC971E944CEF00F1E116 /* AddMemberTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +49,7 @@
 /* Begin PBXFileReference section */
 		D207913C1E81ACDD00AE6017 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D207913F1E81ACDD00AE6017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D20791411E81ACDD00AE6017 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D20791411E81ACDD00AE6017 /* LoansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansViewController.swift; sourceTree = "<group>"; };
 		D20791441E81ACDD00AE6017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D20791461E81ACDD00AE6017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D20791491E81ACDD00AE6017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +60,19 @@
 		D207915B1E81ACDD00AE6017 /* FinalProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D207915F1E81ACDD00AE6017 /* FinalProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectUITests.swift; sourceTree = "<group>"; };
 		D20791611E81ACDD00AE6017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D207916D1E81AE1A00AE6017 /* FinishedLoanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishedLoanTableViewCell.xib; sourceTree = "<group>"; };
+		D207916F1E81AE8A00AE6017 /* FinishedLoanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedLoanTableViewCell.swift; sourceTree = "<group>"; };
+		D20791711E81E06B00AE6017 /* LoanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoanTableViewController.swift; sourceTree = "<group>"; };
+		D20791731E81E56F00AE6017 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		D20791751E81E5A600AE6017 /* MembersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersTableViewController.swift; sourceTree = "<group>"; };
+		D20791771E8210AD00AE6017 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		D2594CC31E83131D00CF6793 /* BooksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksTableViewController.swift; sourceTree = "<group>"; };
+		D2B975C41E847D1900137207 /* AddBookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBookTableViewController.swift; sourceTree = "<group>"; };
+		D2C8BC8A1E9432DE00F1E116 /* Loan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
+		D2C8BC901E943FBF00F1E116 /* OpenLoanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenLoanTableViewCell.swift; sourceTree = "<group>"; };
+		D2C8BC911E943FBF00F1E116 /* OpenLoanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenLoanTableViewCell.xib; sourceTree = "<group>"; };
+		D2C8BC951E944C8100F1E116 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D2C8BC971E944CEF00F1E116 /* AddMemberTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C8BC961E944C8100F1E116 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +108,7 @@
 				D20791531E81ACDD00AE6017 /* FinalProjectTests */,
 				D207915E1E81ACDD00AE6017 /* FinalProjectUITests */,
 				D207913D1E81ACDD00AE6017 /* Products */,
+				D2C8BC941E944C8000F1E116 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +125,24 @@
 		D207913E1E81ACDD00AE6017 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				D20791771E8210AD00AE6017 /* Book.swift */,
+				D20791731E81E56F00AE6017 /* Member.swift */,
 				D207913F1E81ACDD00AE6017 /* AppDelegate.swift */,
-				D20791411E81ACDD00AE6017 /* ViewController.swift */,
+				D20791411E81ACDD00AE6017 /* LoansViewController.swift */,
 				D20791431E81ACDD00AE6017 /* Main.storyboard */,
 				D20791461E81ACDD00AE6017 /* Assets.xcassets */,
 				D20791481E81ACDD00AE6017 /* LaunchScreen.storyboard */,
 				D207914B1E81ACDD00AE6017 /* Info.plist */,
+				D207916D1E81AE1A00AE6017 /* FinishedLoanTableViewCell.xib */,
+				D207916F1E81AE8A00AE6017 /* FinishedLoanTableViewCell.swift */,
+				D20791711E81E06B00AE6017 /* LoanTableViewController.swift */,
+				D20791751E81E5A600AE6017 /* MembersTableViewController.swift */,
+				D2594CC31E83131D00CF6793 /* BooksTableViewController.swift */,
+				D2B975C41E847D1900137207 /* AddBookTableViewController.swift */,
+				D2C8BC8A1E9432DE00F1E116 /* Loan.swift */,
+				D2C8BC901E943FBF00F1E116 /* OpenLoanTableViewCell.swift */,
+				D2C8BC911E943FBF00F1E116 /* OpenLoanTableViewCell.xib */,
+				D2C8BC971E944CEF00F1E116 /* AddMemberTableViewController.swift */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -123,6 +163,14 @@
 				D20791611E81ACDD00AE6017 /* Info.plist */,
 			);
 			path = FinalProjectUITests;
+			sourceTree = "<group>";
+		};
+		D2C8BC941E944C8000F1E116 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2C8BC951E944C8100F1E116 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +241,7 @@
 				TargetAttributes = {
 					D207913B1E81ACDD00AE6017 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 6HTA4M6J6N;
 						ProvisioningStyle = Automatic;
 					};
 					D207914F1E81ACDD00AE6017 = {
@@ -233,8 +282,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D207914A1E81ACDD00AE6017 /* LaunchScreen.storyboard in Resources */,
+				D2C8BC931E943FBF00F1E116 /* OpenLoanTableViewCell.xib in Resources */,
 				D20791471E81ACDD00AE6017 /* Assets.xcassets in Resources */,
 				D20791451E81ACDD00AE6017 /* Main.storyboard in Resources */,
+				D207916E1E81AE1A00AE6017 /* FinishedLoanTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +310,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D20791421E81ACDD00AE6017 /* ViewController.swift in Sources */,
+				D20791421E81ACDD00AE6017 /* LoansViewController.swift in Sources */,
+				D2C8BC981E944CEF00F1E116 /* AddMemberTableViewController.swift in Sources */,
+				D2C8BC8B1E9432DE00F1E116 /* Loan.swift in Sources */,
+				D2C8BC921E943FBF00F1E116 /* OpenLoanTableViewCell.swift in Sources */,
+				D20791721E81E06B00AE6017 /* LoanTableViewController.swift in Sources */,
+				D20791781E8210AD00AE6017 /* Book.swift in Sources */,
+				D20791701E81AE8A00AE6017 /* FinishedLoanTableViewCell.swift in Sources */,
 				D20791401E81ACDD00AE6017 /* AppDelegate.swift in Sources */,
+				D2594CC41E83131D00CF6793 /* BooksTableViewController.swift in Sources */,
+				D20791761E81E5A600AE6017 /* MembersTableViewController.swift in Sources */,
+				D2B975C51E847D1900137207 /* AddBookTableViewController.swift in Sources */,
+				D20791741E81E56F00AE6017 /* Member.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6HTA4M6J6N;
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rodrigocoutinho.FinalProject;
@@ -424,6 +486,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6HTA4M6J6N;
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rodrigocoutinho.FinalProject;
@@ -505,6 +568,7 @@
 				D20791661E81ACDD00AE6017 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D20791671E81ACDD00AE6017 /* Build configuration list for PBXNativeTarget "FinalProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +577,7 @@
 				D20791691E81ACDD00AE6017 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D207916A1E81ACDD00AE6017 /* Build configuration list for PBXNativeTarget "FinalProjectUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +586,7 @@
 				D207916C1E81ACDD00AE6017 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

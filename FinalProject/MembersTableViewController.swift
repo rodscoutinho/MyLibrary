@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  MembersTableViewController.swift
 //  FinalProject
 //
 //  Created by Rodrigo Coutinho on 21/03/17.
@@ -7,44 +7,19 @@
 //
 
 import UIKit
+import MapKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+protocol MembersTableViewControllerDelegate: class {
+    func membersTableViewController(_ controller: MembersTableViewController, didFinishSelecting member: Member)
+}
 
-    var window: UIWindow?
+class MembersTableViewController: UITableViewController {
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let loansViewController = window?.rootViewController as! LoansViewController
-        loansViewController.members = readMembersDefaultData()
-        
-        return true
-    }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-    private func readMembersDefaultData() -> [Member]? {
-        var members = [Member]()
+    var members = [Member]()
+    weak var delegate: MembersTableViewControllerDelegate?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         let member1 = Member(name: "Hilel Sykes", phone: "1-230-468-0413", address: "506 Arcu. Av.", email: "felis@Nunc.com")
         let member2 = Member(name: "Suki Powers", phone: "1-789-198-8648", address: "809 Nunc Av.", email: "lobortis.quam.a@turpisnecmauris.ca")
@@ -169,7 +144,79 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         members.append(member60)
         members.append(member61)
         
-        return members
+        members.sort {
+            $0 < $1
+        }
     }
+
+    // MARK: - Table view data source
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return members.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath)
+        
+        let member = members[indexPath.row]
+        cell.textLabel?.text = member.name
+        cell.detailTextLabel?.text = member.phone
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let member = members[indexPath.row]
+        
+        delegate?.membersTableViewController(self, didFinishSelecting: member)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "editMember" {
+            
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                
+                let member = members[indexPath.row]
+                
+                let navController = segue.destination as! UINavigationController
+                let addMemberVC = navController.topViewController as! AddMemberTableViewController
+                addMemberVC.delegate = self
+                addMemberVC.member = member
+                
+            }
+            
+        }
+        
+    }
+    
 }
 
+extension MembersTableViewController: AddMemberTableViewControllerDelegate {
+    
+    func addMemberTableViewControllerDidCancel(_ controller: AddMemberTableViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func addMemberTableViewController(_ controller: AddMemberTableViewController, didFinishAddingMember member: Member) {
+        members.append(member)
+        tableView.reloadData()
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func addMemberTableViewController(_ controller: AddMemberTableViewController, didFinishEditing member: Member) {
+        
+        if let index = members.index(of: member) {
+            let indexPath = IndexPath(row: index, section: 0)
+            members[index] = member
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+func < (lhs: Member, rhs: Member) -> Bool {
+    return lhs.name.localizedStandardCompare(rhs.name) == .orderedAscending
+}

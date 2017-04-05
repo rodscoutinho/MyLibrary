@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FinishedLoanTableViewCell" rowHeight="138" id="2ZJ-0z-EFH" customClass="FinishedLoanTableViewCell" customModule="FinalProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2ZJ-0z-EFH" id="cCV-qa-OS4">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X books" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZP-wh-Dcv">
+                        <rect key="frame" x="8" y="37" width="304" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expected return date:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fb-xC-SUV">
+                        <rect key="frame" x="8" y="88" width="141" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout date:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lif-fq-QHc">
+                        <rect key="frame" x="8" y="63" width="99" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00/00/0000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxa-nI-vuf">
+                        <rect key="frame" x="233" y="63" width="79" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74l-lg-T8b">
+                        <rect key="frame" x="8" y="8" width="304" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00/00/0000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dV-6y-wSs">
+                        <rect key="frame" x="233" y="88" width="79" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return date:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPQ-ZI-EFL">
+                        <rect key="frame" x="8" y="113" width="80" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00/00/0000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIQ-lg-57b">
+                        <rect key="frame" x="233" y="113" width="79" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="leadingMargin" secondItem="1fb-xC-SUV" secondAttribute="leading" id="4u0-vX-Up1"/>
+                    <constraint firstItem="6dV-6y-wSs" firstAttribute="top" secondItem="qxa-nI-vuf" secondAttribute="bottom" constant="8" id="7v7-BH-mxZ"/>
+                    <constraint firstItem="hIQ-lg-57b" firstAttribute="top" secondItem="6dV-6y-wSs" secondAttribute="bottom" constant="8" id="8iV-FT-cVj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hIQ-lg-57b" secondAttribute="trailing" id="9h6-3z-LKX"/>
+                    <constraint firstItem="1fb-xC-SUV" firstAttribute="top" secondItem="lif-fq-QHc" secondAttribute="bottom" constant="8" id="A17-8I-LET"/>
+                    <constraint firstItem="74l-lg-T8b" firstAttribute="top" secondItem="cCV-qa-OS4" secondAttribute="top" constant="8" id="JXh-1o-e3I"/>
+                    <constraint firstItem="qxa-nI-vuf" firstAttribute="top" secondItem="YZP-wh-Dcv" secondAttribute="bottom" constant="8" id="Jxe-YB-FgU"/>
+                    <constraint firstItem="YZP-wh-Dcv" firstAttribute="leading" secondItem="cCV-qa-OS4" secondAttribute="leading" constant="8" id="S7K-sa-H6e"/>
+                    <constraint firstItem="nPQ-ZI-EFL" firstAttribute="top" secondItem="1fb-xC-SUV" secondAttribute="bottom" constant="8" id="bfe-X4-a0q"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="nPQ-ZI-EFL" secondAttribute="leading" id="gCh-Pu-o5x"/>
+                    <constraint firstAttribute="trailing" secondItem="74l-lg-T8b" secondAttribute="trailing" constant="8" id="gZO-jK-UGo"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="6dV-6y-wSs" secondAttribute="trailing" id="kIG-DL-Riw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="nPQ-ZI-EFL" secondAttribute="bottom" constant="-0.5" id="koT-CJ-TSz"/>
+                    <constraint firstItem="74l-lg-T8b" firstAttribute="leading" secondItem="cCV-qa-OS4" secondAttribute="leading" constant="8" id="nVs-k9-fSr"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="qxa-nI-vuf" secondAttribute="trailing" id="oXa-Fp-9Gt"/>
+                    <constraint firstItem="lif-fq-QHc" firstAttribute="top" secondItem="YZP-wh-Dcv" secondAttribute="bottom" constant="8" id="qAT-Zm-m7Q"/>
+                    <constraint firstAttribute="trailing" secondItem="YZP-wh-Dcv" secondAttribute="trailing" constant="8" id="suy-x2-eJn"/>
+                    <constraint firstItem="YZP-wh-Dcv" firstAttribute="top" secondItem="74l-lg-T8b" secondAttribute="bottom" constant="8" id="uef-B9-akf"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="lif-fq-QHc" secondAttribute="leading" id="ygR-up-2vj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="checkouDate" destination="qxa-nI-vuf" id="5Bk-5x-50g"/>
+                <outlet property="expectedReturnDate" destination="6dV-6y-wSs" id="AGP-l8-YIk"/>
+                <outlet property="loansDescriptionLabel" destination="YZP-wh-Dcv" id="5Gy-F5-j9a"/>
+                <outlet property="memberLabel" destination="74l-lg-T8b" id="Yzb-XJ-Tpw"/>
+                <outlet property="returnDate" destination="hIQ-lg-57b" id="WGb-m4-To6"/>
+            </connections>
+            <point key="canvasLocation" x="8" y="-36"/>
+        </tableViewCell>
+    </objects>
+</document>
