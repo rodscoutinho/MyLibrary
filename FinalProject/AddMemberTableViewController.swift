@@ -11,8 +11,8 @@ import MapKit
 
 protocol AddMemberTableViewControllerDelegate: class {
     func addMemberTableViewControllerDidCancel(_ controller: AddMemberTableViewController)
-    func addMemberTableViewController(_ controller: AddMemberTableViewController, didFinishAddingMember member: Member)
-    func addMemberTableViewController(_ controller: AddMemberTableViewController, didFinishEditing member: Member)
+    func addMemberTableViewController(_ controller: AddMemberTableViewController, didFinishAddingMember member: MemberMO)
+    func addMemberTableViewController(_ controller: AddMemberTableViewController, didFinishEditing member: MemberMO)
 }
 
 class AddMemberTableViewController: UITableViewController {
@@ -23,7 +23,7 @@ class AddMemberTableViewController: UITableViewController {
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     
-    var member: Member?
+    var member: MemberMO?
     var annotation = MKPointAnnotation()
     
     var delegate: AddMemberTableViewControllerDelegate?
@@ -92,12 +92,14 @@ class AddMemberTableViewController: UITableViewController {
         if let member = member {
             
             if let name = nameTextField.text, !name.isEmpty {
+                
                 member.name = name
                 member.phone = phoneTextField.text!
                 member.email = emailTextField.text!
                 member.address = addressTextField.text!
                 
                 delegate?.addMemberTableViewController(self, didFinishEditing: member)
+                
                 
             } else {
                 let alertController = UIAlertController(title: "Empty name", message: "Please provide the member name before trying to save", preferredStyle: .alert)
@@ -110,8 +112,15 @@ class AddMemberTableViewController: UITableViewController {
         } else {
             
             if let name = nameTextField.text, !name.isEmpty {
-                let member = Member(name: name, phone: phoneTextField.text!, address: addressTextField.text!, email: emailTextField.text!)
-                delegate?.addMemberTableViewController(self, didFinishAddingMember: member)
+                if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                    let member = MemberMO(context: appDelegate.persistentContainer.viewContext)
+                    member.name = name
+                    member.address = addressTextField.text
+                    member.phone = phoneTextField.text
+                    member.email = emailTextField.text
+                    
+                    delegate?.addMemberTableViewController(self, didFinishAddingMember: member)
+                }
             } else {
                 let alertController = UIAlertController(title: "Empty name", message: "Please provide the member name before trying to save", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

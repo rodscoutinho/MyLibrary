@@ -42,12 +42,14 @@ enum Genre: String {
     case Travel = "Travel"
     case Trilogy = "Trilogy"
     
-    static let allValues = [Action, Anthology, Art, Autobiographies, Biographies, Childrens, Comics, Cookbooks, Diaries, Dictionaries, Drama, Encyclopedias, Fantasy, Guide, Health, History, Horror, Journals, Math, Mystery, Poetry, Prayer, Religion, Romance, Satire, Science, Scifi, SelfHelp, Series, Travel, Trilogy]
+    static let allValues = [Action.rawValue, Anthology.rawValue, Art.rawValue, Autobiographies.rawValue, Biographies.rawValue, Childrens.rawValue, Comics.rawValue, Cookbooks.rawValue, Diaries.rawValue, Dictionaries.rawValue, Drama.rawValue, Encyclopedias.rawValue, Fantasy.rawValue, Guide.rawValue, Health.rawValue, History.rawValue, Horror.rawValue, Journals.rawValue, Math.rawValue, Mystery.rawValue, Poetry.rawValue, Prayer.rawValue, Religion.rawValue, Romance.rawValue, Satire.rawValue, Science.rawValue, Scifi.rawValue, SelfHelp.rawValue, Series.rawValue, Travel.rawValue, Trilogy.rawValue]
     
 }
 
 protocol AddBookTableViewControllerDelegate: class {
-    func addBookTableViewController(_ controller: AddBookTableViewController, didFinishAdding book: Book)
+    func addBookTableViewControllerDidCancel(_ controller: AddBookTableViewController)
+    func addBookTableViewController(_ controller: AddBookTableViewController, didFinishEditing book: BookMO)
+    func addBookTableViewController(_ controller: AddBookTableViewController, didFinishAdding book: BookMO)
 }
 
 class AddBookTableViewController: UITableViewController, UIPickerViewDelegate {
@@ -58,7 +60,7 @@ class AddBookTableViewController: UITableViewController, UIPickerViewDelegate {
     @IBOutlet weak var isbnTextField: UITextField!
     @IBOutlet weak var coverImageView: UIImageView!
     
-    var book: Book?
+    var book: BookMO?
     weak var delegate: AddBookTableViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -70,33 +72,64 @@ class AddBookTableViewController: UITableViewController, UIPickerViewDelegate {
             titleTextField.text = book.title
             authorTextField.text = book.author
             
-            if let genreIndex = Genre.allValues.index(of: book.genre) {
+            if let genreIndex = Genre.allValues.index(of: book.genre!) {
                 genrePickerView.selectRow(genreIndex, inComponent: 0, animated: true)
             }
         }
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        delegate?.addBookTableViewControllerDidCancel(self)
     }
     
     @IBAction func saveBook(_ sender: UIBarButtonItem) {
         
         // Editing book
         if let book = book {
-            book.title = titleTextField.text!
-            book.author = authorTextField.text!
-            book.genre = Genre.allValues[genrePickerView.selectedRow(inComponent: 0)]
-            book.isbn = isbnTextField.text!
+
+            if let title = titleTextField.text, !title.isEmpty {
+                
+                book.title = titleTextField.text
+                book.author = authorTextField.text
+                book.genre = Genre.allValues[genrePickerView.selectedRow(inComponent: 0)]
+                book.isbn = isbnTextField.text
+                
+                delegate?.addBookTableViewController(self, didFinishEditing: book)
+                
+            } else {
+                let alertController = UIAlertController(title: "Empty title", message: "Please provide the book title before trying to save", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alertController, animated: true, completion: nil)
+                
+                titleTextField.becomeFirstResponder()
+            }
+
         } else {
             // Adding book
-            let book = Book(id: 2000, author: authorTextField.text!, genre: Genre.allValues[genrePickerView.selectedRow(inComponent: 0)], title: titleTextField.text!, isbn: isbnTextField.text!)
-            book.title = titleTextField.text!
-            book.author = authorTextField.text!
-            book.genre = Genre.allValues[genrePickerView.selectedRow(inComponent: 0)]
-            book.isbn = isbnTextField.text!
             
-            delegate?.addBookTableViewController(self, didFinishAdding: book)
+            if let title = titleTextField.text, !title.isEmpty {
+                
+                if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                    
+                    let book = BookMO(context: appDelegate.persistentContainer.viewContext)
+                    book.title = titleTextField.text
+                    book.author = authorTextField.text
+                    book.genre = Genre.allValues[genrePickerView.selectedRow(inComponent: 0)]
+                    book.isbn = isbnTextField.text
+                    
+                    delegate?.addBookTableViewController(self, didFinishAdding: book)
+                    
+                }
+                
+            } else {
+                
+                let alertController = UIAlertController(title: "Empty title", message: "Please provide the book title before trying to save", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alertController, animated: true, completion: nil)
+                
+                titleTextField.becomeFirstResponder()
+
+            }
         }
     }
     
@@ -136,7 +169,7 @@ extension AddBookTableViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Genre.allValues[row].rawValue
+        return Genre.allValues[row]
     }
     
 }

@@ -14,14 +14,17 @@ protocol LoanTableViewControllerDelegate: class {
 
 class LoanTableViewController: UITableViewController {
     
-    var member: Member?
-    var books = [Book]()
+    var datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .date
+        picker.minimumDate = Date()
+        return picker
+    }()
+    
+    var member: MemberMO?
+    var books = [BookMO]()
     
     var delegate: LoanTableViewControllerDelegate?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     @IBAction func saveLoan(_ sender: UIBarButtonItem) {
         
@@ -48,18 +51,20 @@ class LoanTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
-        } else {
+        } else if section == 1 {
             if books.count == 0 {
                 return 1
             } else {
                 return books.count + 1
             }
+        } else {
+            return 1
         }
     }
     
@@ -71,7 +76,7 @@ class LoanTableViewController: UITableViewController {
             if let member = member {
                 cell.textLabel?.text = member.name
             }
-        } else {
+        } else if indexPath.section == 1 {
             
             if indexPath.row > books.count - 1 {
                 cell.textLabel?.text = "Add a book"
@@ -79,6 +84,10 @@ class LoanTableViewController: UITableViewController {
             } else {
                 cell.textLabel?.text = books[indexPath.row].title
             }
+            
+        } else {
+            
+            cell.addSubview(datePicker)
             
         }
         
@@ -92,6 +101,8 @@ class LoanTableViewController: UITableViewController {
             return "Member"
         case 1:
             return "Book(s)"
+        case 2:
+            return "Expected return date"
         default:
             return nil
         }
@@ -107,6 +118,14 @@ class LoanTableViewController: UITableViewController {
                 tableView.deselectRow(at: indexPath, animated: true)
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 2 {
+            return 216
+        }
+        
+        return 44
     }
     
     // Override to support conditional editing of the table view.
@@ -159,7 +178,7 @@ class LoanTableViewController: UITableViewController {
 
 extension LoanTableViewController: MembersTableViewControllerDelegate {
     
-    func membersTableViewController(_ controller: MembersTableViewController, didFinishSelecting member: Member) {
+    func membersTableViewController(_ controller: MembersTableViewController, didFinishSelecting member: MemberMO) {
         self.member = member
         
         tableView.reloadData()
@@ -171,7 +190,11 @@ extension LoanTableViewController: MembersTableViewControllerDelegate {
 
 extension LoanTableViewController: BooksTableViewControllerDelegate {
     
-    func booksTableViewController(_ controller: BooksTableViewController, didFinishSelecting book: Book) {
+    func booksTableViewControllerDidCancel(_ controller: BooksTableViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func booksTableViewController(_ controller: BooksTableViewController, didFinishSelecting book: BookMO) {
         let indexPath = IndexPath(row: books.count, section: 1)
         
         books.append(book)

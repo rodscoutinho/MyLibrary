@@ -18,7 +18,6 @@ class LoansViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var loans = [Loan]()
-    var members: [Member]!
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()

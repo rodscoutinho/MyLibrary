@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let loansViewController = window?.rootViewController as! LoansViewController
-        loansViewController.members = readMembersDefaultData()
+        readBooksDefaultData()
+        readMembersDefaultData()
         
         return true
     }
@@ -42,134 +43,435 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-    private func readMembersDefaultData() -> [Member]? {
-        var members = [Member]()
+    
+    private func readBooksDefaultData() {
         
-        let member1 = Member(name: "Hilel Sykes", phone: "1-230-468-0413", address: "506 Arcu. Av.", email: "felis@Nunc.com")
-        let member2 = Member(name: "Suki Powers", phone: "1-789-198-8648", address: "809 Nunc Av.", email: "lobortis.quam.a@turpisnecmauris.ca")
-        let member3 = Member(name: "Preston Barron", phone: "1-335-551-4340", address: "P.O. Box 751, 1279 Tempor Street", email: "mattis.Integer@acmetusvitae.net")
-        let member4 = Member(name: "MacKenzie Frederick", phone: "1-210-982-3915", address: "Ap #634-1466 Metus Ave", email: "fames@velvenenatisvel.ca")
-        let member5 = Member(name: "Quinn Hess", phone: "1-357-406-8021", address: "P.O. Box 625, 497 Id, Ave", email: "vel@Nunc.org")
-        let member6 = Member(name: "Amy Maddox", phone: "1-999-755-7510", address: "P.O. Box 776, 2745 letius. St.", email: "et.lacinia.vitae@adipiscingelitCurabitur.org")
-        let member7 = Member(name: "Holly Frye", phone: "1-733-250-9612", address: "P.O. Box 714, 1209 Libero Rd.", email: "nisi@Donecnibhenim.ca")
-        let member8 = Member(name: "Quemby Witt", phone: "1-892-225-1794", address: "986-6729 Et Ave", email: "tristique.aliquet.Phasellus@enim.edu")
-        let member9 = Member(name: "Martin Fitzgerald", phone: "1-896-870-3537", address: "Ap #340-2796 Eu, Av.", email: "cubilia.Curae@mollisnoncursus.edu")
-        let member10 = Member(name: "Charlotte Hawkins", phone: "1-497-451-2990", address: "P.O. Box 652, 5298 Aptent St.", email: "sit@elit.com")
-        let member11 = Member(name: "Quinn Owens", phone: "1-230-698-4439", address: "7647 Ac, Rd.", email: "eget.letius@facilisisSuspendisse.edu")
-        let member12 = Member(name: "Avye Doyle", phone: "1-669-606-7819", address: "Ap #652-2435 Egestas. Ave", email: "eget.laoreet.posuere@Fuscediamnunc.co.uk")
-        let member13 = Member(name: "Ross Perez", phone: "1-409-166-9108", address: "7788 Ut Avenue", email: "eu@Loremipsum.net")
-        let member14 = Member(name: "Dahlia Dudley", phone: "1-973-474-8374", address: "853-4238 Sed Street", email: "enim@auctorMaurisvel.edu")
-        let member15 = Member(name: "Hope Jackson", phone: "1-766-127-9216", address: "P.O. Box 172, 8297 Amet Rd.", email: "consequat@lobortis.co.uk")
-        let member16 = Member(name: "Baxter Wilkins", phone: "1-771-660-2775", address: "Ap #645-3757 Enim. Avenue", email: "lacus.Mauris@acrisus.ca")
-        let member17 = Member(name: "Anne Hoover", phone: "1-877-174-4057", address: "9227 Sed Av.", email: "pellentesque@enimdiamvel.com")
-        let member18 = Member(name: "Gillian Castro", phone: "1-854-176-9674", address: "Ap #107-7858 Non, Avenue", email: "nec.urna.et@lectusjustoeu.net")
-        let member19 = Member(name: "Hashim Stone", phone: "1-225-518-4719", address: "468-1798 Vestibulum St.", email: "ultricies.ornare@nulla.org")
-        let member20 = Member(name: "Virginia Miranda", phone: "1-410-558-3479", address: "Ap #748-9767 Pede St.", email: "a.ultricies.adipiscing@nisl.edu")
-        let member21 = Member(name: "Myra Castillo", phone: "1-590-181-5609", address: "Ap #661-558 Semper Av.", email: "per.conubia.nostra@aliquamenim.net")
-        let member22 = Member(name: "Sawyer Ramirez", phone: "1-297-878-7386", address: "7674 Lorem, Avenue", email: "Quisque@egestashendrerit.co.uk")
-        let member23 = Member(name: "Thane Townsend", phone: "1-222-616-2132", address: "1822 Commodo Av.", email: "a.dui@nequeNullamnisl.org")
-        let member24 = Member(name: "Eleanor Erickson", phone: "1-417-559-1259", address: "P.O. Box 405, 1635 Quisque Av.", email: "Fusce.aliquet.magna@Vestibulumaccumsanneque.net")
-        let member25 = Member(name: "Hanae Franklin", phone: "1-684-828-7671", address: "Ap #683-7607 Fringilla. St.", email: "congue.elit@Maurisquisturpis.edu")
-        let member26 = Member(name: "Alana Stewart", phone: "1-632-659-1613", address: "Ap #836-9031 In, Av.", email: "rhoncus.Proin.nisl@ipsum.com")
-        let member27 = Member(name: "Otto Blackwell", phone: "1-959-719-9090", address: "Ap #782-2349 Mi St.", email: "a.nunc.In@Lorem.org")
-        let member28 = Member(name: "Lucius Levy", phone: "1-748-139-1653", address: "950-6328 Parturient St.", email: "enim.nisl@semsempererat.org")
-        let member29 = Member(name: "Fitzgerald Wilkerson", phone: "1-653-215-2763", address: "562-6852 Cursus Rd.", email: "consectetuer.ipsum@tortor.org")
-        let member30 = Member(name: "Elvis Contreras", phone: "1-513-332-7616", address: "9889 Luctus Avenue", email: "ornare.In@cursusetmagna.ca")
-        let member31 = Member(name: "Kiayada Humphrey", phone: "1-766-820-3739", address: "P.O. Box 836, 2352 Blandit Rd.", email: "In@luctusCurabituregestas.edu")
-        let member32 = Member(name: "Thane Fitzpatrick", phone: "1-393-346-3394", address: "376-1709 Nisi Ave", email: "purus@dictumcursus.com")
-        let member33 = Member(name: "Serena Campos", phone: "1-605-249-0533", address: "Ap #123-6866 Cursus Rd.", email: "enim.diam@sitamet.org")
-        let member34 = Member(name: "Elmo Cash", phone: "1-857-348-1703", address: "165-6792 Ligula. Av.", email: "et.ultrices@ornareFuscemollis.ca")
-        let member35 = Member(name: "Leigh Bowen", phone: "1-381-213-0452", address: "Ap #783-9119 Natoque Rd.", email: "ante@leoMorbineque.edu")
-        let member36 = Member(name: "Dora Snyder", phone: "1-340-637-1296", address: "3693 Congue Rd.", email: "amet@molestie.org")
-        let member37 = Member(name: "Madaline Blanchard", phone: "1-968-541-8276", address:" 5336 Magna St.", email: "Quisque.nonummy.ipsum@ut.org")
-        let member38 = Member(name: "Shay Norton", phone: "1-873-698-8330", address: "785-8550 Dis Ave", email: "mollis@hymenaeosMauris.ca")
-        let member39 = Member(name: "Axel Kaufman", phone: "1-682-546-4690", address: "Ap #281-7126 Primis Rd.", email: "magnis.dis.parturient@amagna.ca")
-        let member40 = Member(name: "Cameron Wilder", phone: "1-400-568-1774", address: "P.O. Box 345, 419 Eget, Road", email: "dolor@dictum.org")
-        let member41 = Member(name: "Lunea Kent", phone: "1-679-536-1747", address: "Ap #154-2659 Accumsan Ave", email: "ipsum.Donec.sollicitudin@ac.edu")
-        let member42 = Member(name: "Pearl Nielsen", phone: "1-367-330-0369", address: "Ap #851-9871 Mauris Street", email: "nibh@senectusetnetus.edu")
-        let member43 = Member(name: "Chaim Doyle", phone: "1-906-882-6747", address: "634-4724 Lobortis Rd.", email: "consectetuer.euismod@Donec.edu")
-        let member44 = Member(name: "Benjamin Wilkerson", phone: "1-369-404-9241", address: "126-3599 Sapien. St.", email: "a.malesuada.id@aliquamenim.org")
-        let member45 = Member(name: "Shellie Hanson", phone: "1-319-293-9953", address: "P.O. Box 272, 378 Tellus Ave", email: "lacus.Nulla@senectuset.co.uk")
-        let member46 = Member(name: "Jermaine Coffey", phone: "1-839-654-3614", address: "172 Molestie St.", email: "augue@Proinsed.com")
-        let member47 = Member(name: "Rogan Boyer", phone: "1-239-147-4145", address: "Ap #988-6752 Tristique Ave", email: "Nam@euismodest.edu")
-        let member48 = Member(name: "Wang Howell", phone: "1-619-518-9393", address: "5597 Nulla Road", email: "sit.amet.consectetuer@lectus.ca")
-        let member49 = Member(name: "Brady Hicks", phone: "1-661-542-1104", address: "Ap #789-6642 Luctus Road", email: "mauris.ipsum.porta@rutrum.edu")
-        let member50 = Member(name: "Maite Hartman", phone: "1-290-466-2835", address: "P.O. Box 243, 795 Diam Avenue", email: "mi@aodio.com")
-        let member51 = Member(name: "Brett Wright", phone: "1-489-704-7766", address: "4160 Ipsum Ave", email: "dictum.eu@diam.edu")
-        let member52 = Member(name: "Cara Andrews", phone: "1-399-478-8858", address: "Ap #546-3984 Venenatis Ave", email: "aliquet.Proin.velit@libero.com")
-        let member53 = Member(name: "Zephr Flynn", phone: "1-220-948-8326", address: "813 Rutrum Rd.", email: "cursus@nuncQuisque.com")
-        let member54 = Member(name: "Kellie Oneal", phone: "1-157-235-0886", address: "Ap #429-9815 Semper Av.", email: "sit@estNuncullamcorper.com")
-        let member55 = Member(name: "Violet Vaughn", phone: "1-937-933-6874", address: "6872 Duis St.", email: "sollicitudin.adipiscing.ligula@Vestibulum.co.uk")
-        let member56 = Member(name: "Cassandra Rollins", phone: "1-775-809-8241", address: "Ap #171-2718 Velit. Ave", email: "porta.elit.a@quamCurabitur.edu")
-        let member57 = Member(name: "Hayden Alexander", phone: "1-176-601-5617", address: "P.O. Box 678, 1894 Quisque Ave", email: "Mauris.magna.Duis@enim.co.uk")
-        let member58 = Member(name: "September Goodwin", phone: "1-267-137-8791", address: "P.O. Box 519, 8931 Eu, Av.", email: "turpis.egestas@purus.ca")
-        let member59 = Member(name: "Clare Bates", phone: "1-904-635-2948", address: "Ap #591-199 Metus. Rd.", email: "molestie@ligula.net")
-        let member60 = Member(name: "Christine Pollard", phone: "1-827-903-1336", address: "493-6783 Quisque Av.", email: "non.enim.Mauris@antebibendum.org")
-        let member61 = Member(name: "Jada Greene", phone: "1-836-355-3384", address: "P.O. Box 953, 7599 Amet Avenue", email: "eget.laoreet@Fuscealiquet.co.uk")
-        members.append(member1)
-        members.append(member2)
-        members.append(member3)
-        members.append(member4)
-        members.append(member5)
-        members.append(member6)
-        members.append(member7)
-        members.append(member8)
-        members.append(member9)
-        members.append(member10)
-        members.append(member11)
-        members.append(member12)
-        members.append(member13)
-        members.append(member14)
-        members.append(member15)
-        members.append(member16)
-        members.append(member17)
-        members.append(member18)
-        members.append(member19)
-        members.append(member20)
-        members.append(member21)
-        members.append(member22)
-        members.append(member23)
-        members.append(member24)
-        members.append(member25)
-        members.append(member26)
-        members.append(member27)
-        members.append(member28)
-        members.append(member29)
-        members.append(member30)
-        members.append(member31)
-        members.append(member32)
-        members.append(member33)
-        members.append(member34)
-        members.append(member35)
-        members.append(member36)
-        members.append(member37)
-        members.append(member38)
-        members.append(member39)
-        members.append(member40)
-        members.append(member41)
-        members.append(member42)
-        members.append(member43)
-        members.append(member44)
-        members.append(member45)
-        members.append(member46)
-        members.append(member47)
-        members.append(member48)
-        members.append(member49)
-        members.append(member50)
-        members.append(member51)
-        members.append(member52)
-        members.append(member53)
-        members.append(member54)
-        members.append(member55)
-        members.append(member56)
-        members.append(member57)
-        members.append(member58)
-        members.append(member59)
-        members.append(member60)
-        members.append(member61)
+        if UserDefaults.standard.bool(forKey: "Books") {
+            return
+        }
         
-        return members
+        let book1 = BookMO(context: persistentContainer.viewContext)
+        book1.author = "Moran, Cathleen"
+        book1.genre = "Childrens"
+        book1.title = "Grumpy Cat: Misadventures"
+        book1.isbn = "9-13485-062-1"
+        
+        let book2 = BookMO(context: persistentContainer.viewContext)
+        book2.author = "Leon, Elvis"
+        book2.genre = "Action and Adventure"
+        book2.title = "The Giving Tree"
+        book2.isbn = "7-96810-292-6"
+        
+        let book3 = BookMO(context: persistentContainer.viewContext)
+        book3.author = "Ware, Kimberly"
+        book3.genre = "Action and Adventure"
+        book3.title = "The Giving Tree"
+        book3.isbn = "7-96810-292-6"
+        
+        let book4 = BookMO(context: persistentContainer.viewContext)
+        book4.author = "Olsen, Ursula"
+        book4.genre = "Action and Adventure"
+        book4.title = "This Savage Song"
+        book4.isbn = "4-36857-462-7"
+        
+        let book5 = BookMO(context: persistentContainer.viewContext)
+        book5.author = "Moran, Cathleen"
+        book5.genre = "Childrens"
+        book5.title = "Grumpy Cat: Misadventures"
+        book5.isbn = "9-13485-062-1"
+        
+        let book6 = BookMO(context: persistentContainer.viewContext)
+        book6.author = "Moran, Cathleen"
+        book6.genre = "Childrens"
+        book6.title = "Grumpy Cat: Misadventures"
+        book6.isbn = "9-13485-062-1"
+        
+        let book7 = BookMO(context: persistentContainer.viewContext)
+        book7.author = "Moran, Cathleen"
+        book7.genre = "Childrens"
+        book7.title = "Grumpy Cat: Misadventures"
+        book7.isbn = "9-13485-062-1"
+        
+        let book8 = BookMO(context: persistentContainer.viewContext)
+        book8.author = "Wise, Edward"
+        book8.genre = "Satire"
+        book8.title = "This Is Not My Hat"
+        book8.isbn = "4-69511-812-5"
+        
+        let book9 = BookMO(context: persistentContainer.viewContext)
+        book9.author = "Davis, Tanek"
+        book9.genre = "Action and Adventure"
+        book9.title = "I Am the Messenger"
+        book9.isbn = "1-10893-277-9"
+        
+        let book10 = BookMO(context: persistentContainer.viewContext)
+        book10.author = "Cash, Barbara"
+        book10.genre = "Science fiction"
+        book10.title = "Harry Potter And The Half Blood Prince"
+        book10.isbn = "1-51108-970-8"
+        
+        let book11 = BookMO(context: persistentContainer.viewContext)
+        book11.author = "Cash, Barbara"
+        book11.genre = "Science fiction"
+        book11.title = "Harry Potter And The Half Blood Prince"
+        book11.isbn = "1-51108-970-8"
+        
+        let book12 = BookMO(context: persistentContainer.viewContext)
+        book12.author = "Cash, Barbara"
+        book12.genre = "Science fiction"
+        book12.title = "Harry Potter And The Half Blood Prince"
+        book12.isbn = "1-51108-970-8"
+        
+        let book13 = BookMO(context: persistentContainer.viewContext)
+        book13.author = "Cash, Barbara"
+        book13.genre = "Science fiction"
+        book13.title = "Harry Potter And The Half Blood Prince"
+        book13.isbn = "1-51108-970-8"
+        
+        let book14 = BookMO(context: persistentContainer.viewContext)
+        book14.author = "Cash, Barbara"
+        book14.genre = "Science fiction"
+        book14.title = "Harry Potter And The Half Blood Prince"
+        book14.isbn = "1-51108-970-8"
+        
+        let book15 = BookMO(context: persistentContainer.viewContext)
+        book15.author = "Cash, Barbara"
+        book15.genre = "Science fiction"
+        book15.title = "Harry Potter And The Half Blood Prince"
+        book15.isbn = "1-51108-970-8"
+        
+        let book16 = BookMO(context: persistentContainer.viewContext)
+        book16.author = "Cash, Barbara"
+        book16.genre = "Science fiction"
+        book16.title = "Harry Potter And The Half Blood Prince"
+        book16.isbn = "1-51108-970-8"
+        
+        let book17 = BookMO(context: persistentContainer.viewContext)
+        book17.author = "Moran, Cathleen"
+        book17.genre = "Science fiction"
+        book17.title = "Canada 150 - Colouring our History"
+        book17.isbn = "3-90983-714-2"
+        
+        let book18 = BookMO(context: persistentContainer.viewContext)
+        book18.author = "Moran, Cathleen"
+        book18.genre = "Science fiction"
+        book18.title = "Canada Year by Year"
+        book18.isbn = "4-98367-400-9"
+        
+        let book19 = BookMO(context: persistentContainer.viewContext)
+        book19.author = "Moran, Cathleen"
+        book19.genre = "Satire"
+        book19.title = "Shin-Chis Canoe"
+        book19.isbn = "6-53322-000-8"
+        
+        let book20 = BookMO(context: persistentContainer.viewContext)
+        book20.author = "Kane, Isaac"
+        book20.genre = "Satire"
+        book20.title = "When I Was Eight"
+        book20.isbn = "8-80186-294-4"
+        
+        let book21 = BookMO(context: persistentContainer.viewContext)
+        book21.author = "Moran, Cathleen"
+        book21.genre = "Science fiction"
+        book21.title = "Alberta: Revised"
+        book21.isbn = "5-36781-945-9"
+        
+        let book22 = BookMO(context: persistentContainer.viewContext)
+        book22.author = "Moran, Cathleen"
+        book22.genre = "Fantasy"
+        book22.title = "Who Was Queen Elizabeth?"
+        book22.isbn = "3-35190-101-6"
+        
+        let book23 = BookMO(context: persistentContainer.viewContext)
+        book23.author = "Moran, Cathleen"
+        book23.genre = "Satire"
+        book23.title = "Salt to the Sea"
+        book23.isbn = "6-25942-160-3"
+        
+        let book24 = BookMO(context: persistentContainer.viewContext)
+        book24.author = "Moran, Cathleen"
+        book24.genre = "Science fiction"
+        book24.title = "History Year by Year"
+        book24.isbn = "6-19946-821-8"
+        
+        let book25 = BookMO(context: persistentContainer.viewContext)
+        book25.author = "Moran, Cathleen"
+        book25.genre = "Romance"
+        book25.title = "Not My Girl"
+        book25.isbn = "7-88184-267-0"
+        
+        let book26 = BookMO(context: persistentContainer.viewContext)
+        book26.author = "Moran, Cathleen"
+        book26.genre = "Science fiction"
+        book26.title = "Alberta: Revised"
+        book26.isbn = "5-36781-945-9"
+        
+        let book27 = BookMO(context: persistentContainer.viewContext)
+        book27.author = "Kane, Isaac"
+        book27.genre = "Satire"
+        book27.title = "When I Was Eight"
+        book27.isbn = "8-80186-294-4"
+        
+        let book28 = BookMO(context: persistentContainer.viewContext)
+        book28.author = "Kane, Isaac"
+        book28.genre = "Satire"
+        book28.title = "When I Was Eight"
+        book28.isbn = "8-80186-294-4"
+        
+        let book29 = BookMO(context: persistentContainer.viewContext)
+        book29.author = "Kane, Isaac"
+        book29.genre = "Satire"
+        book29.title = "When I Was Eight"
+        book29.isbn = "8-80186-294-4"
+        
+        let book30 = BookMO(context: persistentContainer.viewContext)
+        book30.author = "Kane, Isaac"
+        book30.genre = "Satire"
+        book30.title = "When I Was Eight"
+        book30.isbn = "8-80186-294-4"
+        
+        let book31 = BookMO(context: persistentContainer.viewContext)
+        book31.author = "Moran, Cathleen"
+        book31.genre = "Science fiction"
+        book31.title = "Caraval"
+        book31.isbn = "2-38422-947-5"
+        
+        let book32 = BookMO(context: persistentContainer.viewContext)
+        book32.author = "Cash, Barbara"
+        book32.genre = "Science fiction"
+        book32.title = "The Ultimate Book of Cities"
+        book32.isbn = "7-82967-486-2"
+        
+        let book33 = BookMO(context: persistentContainer.viewContext)
+        book33.author = "Cash, Barbara"
+        book33.genre = "Childrens"
+        book33.title = "Pete the Cat and the Cool Cat Boogie"
+        book33.isbn = "1-84749-125-7"
+        
+        let book34 = BookMO(context: persistentContainer.viewContext)
+        book34.author = "Cash, Barbara"
+        book34.genre = "Romance"
+        book34.title = "Beautiful Oops!"
+        book34.isbn = "7-25964-669-8"
+        
+        let book35 = BookMO(context: persistentContainer.viewContext)
+        book35.author = "Cash, Barbara"
+        book35.genre = "Childrens"
+        book35.title = "Harry Potter: Coloring Book"
+        book35.isbn = "5-23902-861-6"
+        
+        let book36 = BookMO(context: persistentContainer.viewContext)
+        book36.author = "Cash, Barbara"
+        book36.genre = "Childrens"
+        book36.title = "Littlest Pet Shop: I Love to Draw!"
+        book36.isbn = "9-30738-187-0"
+        
+        let book37 = BookMO(context: persistentContainer.viewContext)
+        book37.author = "Cash, Barbara"
+        book37.genre = "Horror"
+        book37.title = "A Court of Wings and Ruin"
+        book37.isbn = "5-78424-598-3"
+        
+        let book38 = BookMO(context: persistentContainer.viewContext)
+        book38.author = "Trevino, Leila"
+        book38.genre = "Science fiction"
+        book38.title = "Light in the Lions Den"
+        book38.isbn = "6-73473-052-3"
+        
+        let book39 = BookMO(context: persistentContainer.viewContext)
+        book39.author = "Trevino, Leila"
+        book39.genre = "Science fiction"
+        book39.title = "Light in the Lions Den"
+        book39.isbn = "6-73473-052-3"
+        
+        let book40 = BookMO(context: persistentContainer.viewContext)
+        book40.author = "Trevino, Leila"
+        book40.genre = "Science fiction"
+        book40.title = "Light in the Lions Den"
+        book40.isbn = "6-73473-052-3"
+        
+        saveContext()
+        
+        UserDefaults.standard.set(true, forKey: "Books")
+        
     }
+    
+    private func readMembersDefaultData() {
+        
+        if UserDefaults.standard.bool(forKey: "Members") {
+            return
+        }
+        
+        let member1 = MemberMO(context: persistentContainer.viewContext)
+        member1.name = "Kathleen Anderson"
+        member1.phone = "46-(758)991-2359"
+        member1.address = "5 Hovde Court"
+        member1.email = "kanderson0@twitter.com"
+        
+        let member2 = MemberMO(context: persistentContainer.viewContext)
+        member2.name = "Amanda Howard"
+        member2.phone = "33-(883)176-6858"
+        member2.address = "58 Acker Point"
+        member2.email = "ahoward1@icio.us"
+        
+        let member3 = MemberMO(context: persistentContainer.viewContext)
+        member3.name = "Lori Cole"
+        member3.phone = "63-(156)294-5781"
+        member3.address = "3147 Bluestem Center"
+        member3.email = "lcole2@disqus.com"
+        
+        let member4 = MemberMO(context: persistentContainer.viewContext)
+        member4.name = "Roger Davis"
+        member4.phone = "48-(328)432-8941"
+        member4.address = "18707 Park Meadow Plaza"
+        member4.email = "rdavis3@feedburner.com"
+        
+        let member5 = MemberMO(context: persistentContainer.viewContext)
+        member5.name = "Johnny Garcia"
+        member5.phone = "55-(417)988-8905"
+        member5.address = "859 Sundown Crossing"
+        member5.email = "jgarcia4@ca.gov"
+        
+        let member6 = MemberMO(context: persistentContainer.viewContext)
+        member6.name = "Lisa Hunt"
+        member6.phone = "593-(333)464-3634"
+        member6.address = "73761 Hayes Alley"
+        member6.email = "lhunt5@gmpg.org"
+        
+        let member7 = MemberMO(context: persistentContainer.viewContext)
+        member7.name = "Marie Scott"
+        member7.phone = "86-(647)173-8552"
+        member7.address = "13963 Anzinger Junction"
+        member7.email = "mscott6@sfgate.com"
+        
+        let member8 = MemberMO(context: persistentContainer.viewContext)
+        member8.name = "Amanda Hayes"
+        member8.phone = "62-(121)870-3352"
+        member8.address = "7516 Westerfield Way"
+        member8.email = "ahayes7@gnu.org"
+        
+        let member9 = MemberMO(context: persistentContainer.viewContext)
+        member9.name = "Ronald Ryan"
+        member9.phone = "86-(841)779-5131"
+        member9.address = "3573 Kedzie Lane"
+        member9.email = "rryan8@mysql.com"
+        
+        let member10 = MemberMO(context: persistentContainer.viewContext)
+        member10.name = "Tammy Oliver"
+        member10.phone = "94-(352)375-5540"
+        member10.address = "8 Warner Street"
+        member10.email = "toliver9@yolasite.com"
+        
+        let member11 = MemberMO(context: persistentContainer.viewContext)
+        member11.name = "Andrea Ward"
+        member11.phone = "223-(586)161-7269"
+        member11.address = "0944 Dunning Plaza"
+        member11.email = "awarda@google.cn"
+        
+        let member12 = MemberMO(context: persistentContainer.viewContext)
+        member12.name = "Amy Nguyen"
+        member12.phone = "86-(291)219-5665"
+        member12.address = "554 Katie Alley"
+        member12.email = "anguyenb@odnoklassniki.ru"
+        
+        let member13 = MemberMO(context: persistentContainer.viewContext)
+        member13.name = "Edward George"
+        member13.phone = "357-(313)154-2776"
+        member13.address = "74484 Anhalt Hill"
+        member13.email = "egeorgec@pcworld.com"
+        
+        let member14 = MemberMO(context: persistentContainer.viewContext)
+        member14.name = "Lawrence Reed"
+        member14.phone = "386-(184)468-5402"
+        member14.address = "2 Lindbergh Way"
+        member14.email = "lreedd@xing.com"
+        
+        let member15 = MemberMO(context: persistentContainer.viewContext)
+        member15.name = "Tina Barnes"
+        member15.phone = "7-(853)196-4865"
+        member15.address = "55481 Hudson Center"
+        member15.email = "tbarnese@va.gov"
+        
+        let member16 = MemberMO(context: persistentContainer.viewContext)
+        member16.name = "Christopher Fields"
+        member16.phone = "57-(120)966-7695"
+        member16.address = "768 Oakridge Road"
+        member16.email = "cfieldsf@goodreads.com"
+        
+        let member17 = MemberMO(context: persistentContainer.viewContext)
+        member17.name = "David Howard"
+        member17.phone = "994-(647)649-4696"
+        member17.address = "19223 Gerald Lane,dhowardg"
+        member17.email = "amazon.co.jp"
+        
+        let member18 = MemberMO(context: persistentContainer.viewContext)
+        member18.name = "Eugene Harper"
+        member18.phone = "86-(648)742-9185"
+        member18.address = "84215 Mcbride Hill"
+        member18.email = "eharperh@boston.com"
+        
+        let member19 = MemberMO(context: persistentContainer.viewContext)
+        member19.name = "Louis Dean"
+        member19.phone = "46-(182)556-0111"
+        member19.address = "6452 Rockefeller Plaza"
+        member19.email = "ldeani@toplist.cz"
+        
+        let member20 = MemberMO(context: persistentContainer.viewContext)
+        member20.name = "Ruby Vasquez"
+        member20.phone = "63-(612)764-1545"
+        member20.address = "3 Mifflin Junction"
+        member20.email = "rvasquezj@mysql.com"
+        
+        saveContext()
+        
+        UserDefaults.standard.set(true, forKey: "Members")
+        
+    }
+    
+    // MARK: - Core Data stack
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        /*
+         The persistent container for the application. This implementation
+         creates and returns a container, having loaded the store for the
+         application to it. This property is optional since there are legitimate
+         error conditions that could cause the creation of the store to fail.
+         */
+        let container = NSPersistentContainer(name: "MyLibrary")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                
+                /*
+                 Typical reasons for an error here include:
+                 * The parent directory does not exist, cannot be created, or disallows writing.
+                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                 * The device is out of space.
+                 * The store could not be migrated to the current model version.
+                 Check the error message to determine what the actual problem was.
+                 */
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+    
+    // MARK: - Core Data Saving support
+    
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+    
 }
 

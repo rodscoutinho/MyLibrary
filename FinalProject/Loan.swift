@@ -12,8 +12,8 @@ class Loan {
     
     private static var internalId: Int = 0
     var id: Int
-    var books: [Book]
-    var member: Member
+    var books: [BookMO]
+    var member: MemberMO
     var loanDate: Date
     var expectedReturnDate: Date
     var returnDate: Date?
@@ -21,7 +21,7 @@ class Loan {
     var duration: Int?
     var fine: Double?
     
-    init(member: Member, books: [Book], expectedReturnDate: Date) {
+    init(member: MemberMO, books: [BookMO], expectedReturnDate: Date) {
         Loan.internalId += 1
         self.id = Loan.internalId
         self.books = books

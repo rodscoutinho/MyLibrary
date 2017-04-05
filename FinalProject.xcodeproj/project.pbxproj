@@ -27,6 +27,7 @@
 		D2C8BC931E943FBF00F1E116 /* OpenLoanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C8BC911E943FBF00F1E116 /* OpenLoanTableViewCell.xib */; };
 		D2C8BC961E944C8100F1E116 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C8BC951E944C8100F1E116 /* MapKit.framework */; };
 		D2C8BC981E944CEF00F1E116 /* AddMemberTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C8BC971E944CEF00F1E116 /* AddMemberTableViewController.swift */; };
+		D2C8BCBC1E946BA200F1E116 /* MyLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2C8BCBA1E946BA200F1E116 /* MyLibrary.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		D2C8BC911E943FBF00F1E116 /* OpenLoanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenLoanTableViewCell.xib; sourceTree = "<group>"; };
 		D2C8BC951E944C8100F1E116 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D2C8BC971E944CEF00F1E116 /* AddMemberTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberTableViewController.swift; sourceTree = "<group>"; };
+		D2C8BCBB1E946BA200F1E116 /* MyLibrary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyLibrary.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,9 +127,9 @@
 		D207913E1E81ACDD00AE6017 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				D207913F1E81ACDD00AE6017 /* AppDelegate.swift */,
 				D20791771E8210AD00AE6017 /* Book.swift */,
 				D20791731E81E56F00AE6017 /* Member.swift */,
-				D207913F1E81ACDD00AE6017 /* AppDelegate.swift */,
 				D20791411E81ACDD00AE6017 /* LoansViewController.swift */,
 				D20791431E81ACDD00AE6017 /* Main.storyboard */,
 				D20791461E81ACDD00AE6017 /* Assets.xcassets */,
@@ -143,6 +145,7 @@
 				D2C8BC901E943FBF00F1E116 /* OpenLoanTableViewCell.swift */,
 				D2C8BC911E943FBF00F1E116 /* OpenLoanTableViewCell.xib */,
 				D2C8BC971E944CEF00F1E116 /* AddMemberTableViewController.swift */,
+				D2C8BCBA1E946BA200F1E116 /* MyLibrary.xcdatamodeld */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				D20791701E81AE8A00AE6017 /* FinishedLoanTableViewCell.swift in Sources */,
 				D20791401E81ACDD00AE6017 /* AppDelegate.swift in Sources */,
 				D2594CC41E83131D00CF6793 /* BooksTableViewController.swift in Sources */,
+				D2C8BCBC1E946BA200F1E116 /* MyLibrary.xcdatamodeld in Sources */,
 				D20791761E81E5A600AE6017 /* MembersTableViewController.swift in Sources */,
 				D2B975C51E847D1900137207 /* AddBookTableViewController.swift in Sources */,
 				D20791741E81E56F00AE6017 /* Member.swift in Sources */,
@@ -589,6 +593,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D2C8BCBA1E946BA200F1E116 /* MyLibrary.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D2C8BCBB1E946BA200F1E116 /* MyLibrary.xcdatamodel */,
+			);
+			currentVersion = D2C8BCBB1E946BA200F1E116 /* MyLibrary.xcdatamodel */;
+			path = MyLibrary.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D20791341E81ACDD00AE6017 /* Project object */;
 }
