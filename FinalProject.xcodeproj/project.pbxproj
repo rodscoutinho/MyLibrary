@@ -21,6 +21,12 @@
 		D20791761E81E5A600AE6017 /* MembersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20791751E81E5A600AE6017 /* MembersTableViewController.swift */; };
 		D20791781E8210AD00AE6017 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20791771E8210AD00AE6017 /* Book.swift */; };
 		D2594CC41E83131D00CF6793 /* BooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2594CC31E83131D00CF6793 /* BooksTableViewController.swift */; };
+		D28116211E95B52500E74389 /* LoanMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D281161B1E95B52500E74389 /* LoanMO+CoreDataClass.swift */; };
+		D28116221E95B52500E74389 /* LoanMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D281161C1E95B52500E74389 /* LoanMO+CoreDataProperties.swift */; };
+		D28116231E95B52500E74389 /* BookMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D281161D1E95B52500E74389 /* BookMO+CoreDataClass.swift */; };
+		D28116241E95B52500E74389 /* BookMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D281161E1E95B52500E74389 /* BookMO+CoreDataProperties.swift */; };
+		D28116251E95B52500E74389 /* MemberMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D281161F1E95B52500E74389 /* MemberMO+CoreDataClass.swift */; };
+		D28116261E95B52500E74389 /* MemberMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28116201E95B52500E74389 /* MemberMO+CoreDataProperties.swift */; };
 		D2B975C51E847D1900137207 /* AddBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B975C41E847D1900137207 /* AddBookTableViewController.swift */; };
 		D2C8BC8B1E9432DE00F1E116 /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C8BC8A1E9432DE00F1E116 /* Loan.swift */; };
 		D2C8BC921E943FBF00F1E116 /* OpenLoanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C8BC901E943FBF00F1E116 /* OpenLoanTableViewCell.swift */; };
@@ -68,6 +74,12 @@
 		D20791751E81E5A600AE6017 /* MembersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersTableViewController.swift; sourceTree = "<group>"; };
 		D20791771E8210AD00AE6017 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		D2594CC31E83131D00CF6793 /* BooksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksTableViewController.swift; sourceTree = "<group>"; };
+		D281161B1E95B52500E74389 /* LoanMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoanMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D281161C1E95B52500E74389 /* LoanMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoanMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D281161D1E95B52500E74389 /* BookMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BookMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D281161E1E95B52500E74389 /* BookMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BookMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D281161F1E95B52500E74389 /* MemberMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MemberMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D28116201E95B52500E74389 /* MemberMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MemberMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D2B975C41E847D1900137207 /* AddBookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBookTableViewController.swift; sourceTree = "<group>"; };
 		D2C8BC8A1E9432DE00F1E116 /* Loan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		D2C8BC901E943FBF00F1E116 /* OpenLoanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenLoanTableViewCell.swift; sourceTree = "<group>"; };
@@ -127,10 +139,12 @@
 		D207913E1E81ACDD00AE6017 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				D28116281E95B53200E74389 /* CoreData */,
 				D207913F1E81ACDD00AE6017 /* AppDelegate.swift */,
 				D20791771E8210AD00AE6017 /* Book.swift */,
 				D20791731E81E56F00AE6017 /* Member.swift */,
 				D20791411E81ACDD00AE6017 /* LoansViewController.swift */,
+				D20791751E81E5A600AE6017 /* MembersTableViewController.swift */,
 				D20791431E81ACDD00AE6017 /* Main.storyboard */,
 				D20791461E81ACDD00AE6017 /* Assets.xcassets */,
 				D20791481E81ACDD00AE6017 /* LaunchScreen.storyboard */,
@@ -138,7 +152,6 @@
 				D207916D1E81AE1A00AE6017 /* FinishedLoanTableViewCell.xib */,
 				D207916F1E81AE8A00AE6017 /* FinishedLoanTableViewCell.swift */,
 				D20791711E81E06B00AE6017 /* LoanTableViewController.swift */,
-				D20791751E81E5A600AE6017 /* MembersTableViewController.swift */,
 				D2594CC31E83131D00CF6793 /* BooksTableViewController.swift */,
 				D2B975C41E847D1900137207 /* AddBookTableViewController.swift */,
 				D2C8BC8A1E9432DE00F1E116 /* Loan.swift */,
@@ -166,6 +179,19 @@
 				D20791611E81ACDD00AE6017 /* Info.plist */,
 			);
 			path = FinalProjectUITests;
+			sourceTree = "<group>";
+		};
+		D28116281E95B53200E74389 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D281161B1E95B52500E74389 /* LoanMO+CoreDataClass.swift */,
+				D281161C1E95B52500E74389 /* LoanMO+CoreDataProperties.swift */,
+				D281161D1E95B52500E74389 /* BookMO+CoreDataClass.swift */,
+				D281161E1E95B52500E74389 /* BookMO+CoreDataProperties.swift */,
+				D281161F1E95B52500E74389 /* MemberMO+CoreDataClass.swift */,
+				D28116201E95B52500E74389 /* MemberMO+CoreDataProperties.swift */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		D2C8BC941E944C8000F1E116 /* Frameworks */ = {
@@ -313,18 +339,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D28116231E95B52500E74389 /* BookMO+CoreDataClass.swift in Sources */,
 				D20791421E81ACDD00AE6017 /* LoansViewController.swift in Sources */,
 				D2C8BC981E944CEF00F1E116 /* AddMemberTableViewController.swift in Sources */,
 				D2C8BC8B1E9432DE00F1E116 /* Loan.swift in Sources */,
+				D28116211E95B52500E74389 /* LoanMO+CoreDataClass.swift in Sources */,
+				D28116261E95B52500E74389 /* MemberMO+CoreDataProperties.swift in Sources */,
 				D2C8BC921E943FBF00F1E116 /* OpenLoanTableViewCell.swift in Sources */,
 				D20791721E81E06B00AE6017 /* LoanTableViewController.swift in Sources */,
+				D28116251E95B52500E74389 /* MemberMO+CoreDataClass.swift in Sources */,
 				D20791781E8210AD00AE6017 /* Book.swift in Sources */,
 				D20791701E81AE8A00AE6017 /* FinishedLoanTableViewCell.swift in Sources */,
 				D20791401E81ACDD00AE6017 /* AppDelegate.swift in Sources */,
 				D2594CC41E83131D00CF6793 /* BooksTableViewController.swift in Sources */,
+				D28116221E95B52500E74389 /* LoanMO+CoreDataProperties.swift in Sources */,
 				D2C8BCBC1E946BA200F1E116 /* MyLibrary.xcdatamodeld in Sources */,
 				D20791761E81E5A600AE6017 /* MembersTableViewController.swift in Sources */,
 				D2B975C51E847D1900137207 /* AddBookTableViewController.swift in Sources */,
+				D28116241E95B52500E74389 /* BookMO+CoreDataProperties.swift in Sources */,
 				D20791741E81E56F00AE6017 /* Member.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

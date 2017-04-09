@@ -62,17 +62,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         book2.title = "The Giving Tree"
         book2.isbn = "7-96810-292-6"
         
-        let book3 = BookMO(context: persistentContainer.viewContext)
-        book3.author = "Ware, Kimberly"
-        book3.genre = "Action and Adventure"
-        book3.title = "The Giving Tree"
-        book3.isbn = "7-96810-292-6"
-        
-        let book4 = BookMO(context: persistentContainer.viewContext)
-        book4.author = "Olsen, Ursula"
-        book4.genre = "Action and Adventure"
-        book4.title = "This Savage Song"
-        book4.isbn = "4-36857-462-7"
+//        let book3 = BookMO(context: persistentContainer.viewContext)
+//        book3.author = "Ware, Kimberly"
+//        book3.genre = "Action and Adventure"
+//        book3.title = "The Giving Tree"
+//        book3.isbn = "7-96810-292-6"
+//        
+//        let book4 = BookMO(context: persistentContainer.viewContext)
+//        book4.author = "Olsen, Ursula"
+//        book4.genre = "Action and Adventure"
+//        book4.title = "This Savage Song"
+//        book4.isbn = "4-36857-462-7"
         
         let book5 = BookMO(context: persistentContainer.viewContext)
         book5.author = "Moran, Cathleen"
@@ -80,17 +80,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         book5.title = "Grumpy Cat: Misadventures"
         book5.isbn = "9-13485-062-1"
         
-        let book6 = BookMO(context: persistentContainer.viewContext)
-        book6.author = "Moran, Cathleen"
-        book6.genre = "Childrens"
-        book6.title = "Grumpy Cat: Misadventures"
-        book6.isbn = "9-13485-062-1"
-        
-        let book7 = BookMO(context: persistentContainer.viewContext)
-        book7.author = "Moran, Cathleen"
-        book7.genre = "Childrens"
-        book7.title = "Grumpy Cat: Misadventures"
-        book7.isbn = "9-13485-062-1"
+//        let book6 = BookMO(context: persistentContainer.viewContext)
+//        book6.author = "Moran, Cathleen"
+//        book6.genre = "Childrens"
+//        book6.title = "Grumpy Cat: Misadventures"
+//        book6.isbn = "9-13485-062-1"
+//        
+//        let book7 = BookMO(context: persistentContainer.viewContext)
+//        book7.author = "Moran, Cathleen"
+//        book7.genre = "Childrens"
+//        book7.title = "Grumpy Cat: Misadventures"
+//        book7.isbn = "9-13485-062-1"
         
         let book8 = BookMO(context: persistentContainer.viewContext)
         book8.author = "Wise, Edward"
@@ -110,41 +110,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         book10.title = "Harry Potter And The Half Blood Prince"
         book10.isbn = "1-51108-970-8"
         
-        let book11 = BookMO(context: persistentContainer.viewContext)
-        book11.author = "Cash, Barbara"
-        book11.genre = "Science fiction"
-        book11.title = "Harry Potter And The Half Blood Prince"
-        book11.isbn = "1-51108-970-8"
-        
-        let book12 = BookMO(context: persistentContainer.viewContext)
-        book12.author = "Cash, Barbara"
-        book12.genre = "Science fiction"
-        book12.title = "Harry Potter And The Half Blood Prince"
-        book12.isbn = "1-51108-970-8"
-        
-        let book13 = BookMO(context: persistentContainer.viewContext)
-        book13.author = "Cash, Barbara"
-        book13.genre = "Science fiction"
-        book13.title = "Harry Potter And The Half Blood Prince"
-        book13.isbn = "1-51108-970-8"
-        
-        let book14 = BookMO(context: persistentContainer.viewContext)
-        book14.author = "Cash, Barbara"
-        book14.genre = "Science fiction"
-        book14.title = "Harry Potter And The Half Blood Prince"
-        book14.isbn = "1-51108-970-8"
-        
-        let book15 = BookMO(context: persistentContainer.viewContext)
-        book15.author = "Cash, Barbara"
-        book15.genre = "Science fiction"
-        book15.title = "Harry Potter And The Half Blood Prince"
-        book15.isbn = "1-51108-970-8"
-        
-        let book16 = BookMO(context: persistentContainer.viewContext)
-        book16.author = "Cash, Barbara"
-        book16.genre = "Science fiction"
-        book16.title = "Harry Potter And The Half Blood Prince"
-        book16.isbn = "1-51108-970-8"
+//        let book11 = BookMO(context: persistentContainer.viewContext)
+//        book11.author = "Cash, Barbara"
+//        book11.genre = "Science fiction"
+//        book11.title = "Harry Potter And The Half Blood Prince"
+//        book11.isbn = "1-51108-970-8"
+//        
+//        let book12 = BookMO(context: persistentContainer.viewContext)
+//        book12.author = "Cash, Barbara"
+//        book12.genre = "Science fiction"
+//        book12.title = "Harry Potter And The Half Blood Prince"
+//        book12.isbn = "1-51108-970-8"
+//        
+//        let book13 = BookMO(context: persistentContainer.viewContext)
+//        book13.author = "Cash, Barbara"
+//        book13.genre = "Science fiction"
+//        book13.title = "Harry Potter And The Half Blood Prince"
+//        book13.isbn = "1-51108-970-8"
+//        
+//        let book14 = BookMO(context: persistentContainer.viewContext)
+//        book14.author = "Cash, Barbara"
+//        book14.genre = "Science fiction"
+//        book14.title = "Harry Potter And The Half Blood Prince"
+//        book14.isbn = "1-51108-970-8"
+//        
+//        let book15 = BookMO(context: persistentContainer.viewContext)
+//        book15.author = "Cash, Barbara"
+//        book15.genre = "Science fiction"
+//        book15.title = "Harry Potter And The Half Blood Prince"
+//        book15.isbn = "1-51108-970-8"
+//        
+//        let book16 = BookMO(context: persistentContainer.viewContext)
+//        book16.author = "Cash, Barbara"
+//        book16.genre = "Science fiction"
+//        book16.title = "Harry Potter And The Half Blood Prince"
+//        book16.isbn = "1-51108-970-8"
         
         let book17 = BookMO(context: persistentContainer.viewContext)
         book17.author = "Moran, Cathleen"
@@ -200,35 +200,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         book25.title = "Not My Girl"
         book25.isbn = "7-88184-267-0"
         
-        let book26 = BookMO(context: persistentContainer.viewContext)
-        book26.author = "Moran, Cathleen"
-        book26.genre = "Science fiction"
-        book26.title = "Alberta: Revised"
-        book26.isbn = "5-36781-945-9"
+//        let book26 = BookMO(context: persistentContainer.viewContext)
+//        book26.author = "Moran, Cathleen"
+//        book26.genre = "Science fiction"
+//        book26.title = "Alberta: Revised"
+//        book26.isbn = "5-36781-945-9"
         
-        let book27 = BookMO(context: persistentContainer.viewContext)
-        book27.author = "Kane, Isaac"
-        book27.genre = "Satire"
-        book27.title = "When I Was Eight"
-        book27.isbn = "8-80186-294-4"
+//        let book27 = BookMO(context: persistentContainer.viewContext)
+//        book27.author = "Kane, Isaac"
+//        book27.genre = "Satire"
+//        book27.title = "When I Was Eight"
+//        book27.isbn = "8-80186-294-4"
         
-        let book28 = BookMO(context: persistentContainer.viewContext)
-        book28.author = "Kane, Isaac"
-        book28.genre = "Satire"
-        book28.title = "When I Was Eight"
-        book28.isbn = "8-80186-294-4"
+//        let book28 = BookMO(context: persistentContainer.viewContext)
+//        book28.author = "Kane, Isaac"
+//        book28.genre = "Satire"
+//        book28.title = "When I Was Eight"
+//        book28.isbn = "8-80186-294-4"
         
-        let book29 = BookMO(context: persistentContainer.viewContext)
-        book29.author = "Kane, Isaac"
-        book29.genre = "Satire"
-        book29.title = "When I Was Eight"
-        book29.isbn = "8-80186-294-4"
-        
-        let book30 = BookMO(context: persistentContainer.viewContext)
-        book30.author = "Kane, Isaac"
-        book30.genre = "Satire"
-        book30.title = "When I Was Eight"
-        book30.isbn = "8-80186-294-4"
+//        let book29 = BookMO(context: persistentContainer.viewContext)
+//        book29.author = "Kane, Isaac"
+//        book29.genre = "Satire"
+//        book29.title = "When I Was Eight"
+//        book29.isbn = "8-80186-294-4"
+//        
+//        let book30 = BookMO(context: persistentContainer.viewContext)
+//        book30.author = "Kane, Isaac"
+//        book30.genre = "Satire"
+//        book30.title = "When I Was Eight"
+//        book30.isbn = "8-80186-294-4"
         
         let book31 = BookMO(context: persistentContainer.viewContext)
         book31.author = "Moran, Cathleen"
@@ -236,11 +236,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         book31.title = "Caraval"
         book31.isbn = "2-38422-947-5"
         
-        let book32 = BookMO(context: persistentContainer.viewContext)
-        book32.author = "Cash, Barbara"
-        book32.genre = "Science fiction"
-        book32.title = "The Ultimate Book of Cities"
-        book32.isbn = "7-82967-486-2"
+//        let book32 = BookMO(context: persistentContainer.viewContext)
+//        book32.author = "Cash, Barbara"
+//        book32.genre = "Science fiction"
+//        book32.title = "The Ultimate Book of Cities"
+//        book32.isbn = "7-82967-486-2"
         
         let book33 = BookMO(context: persistentContainer.viewContext)
         book33.author = "Cash, Barbara"
@@ -278,17 +278,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         book38.title = "Light in the Lions Den"
         book38.isbn = "6-73473-052-3"
         
-        let book39 = BookMO(context: persistentContainer.viewContext)
-        book39.author = "Trevino, Leila"
-        book39.genre = "Science fiction"
-        book39.title = "Light in the Lions Den"
-        book39.isbn = "6-73473-052-3"
-        
-        let book40 = BookMO(context: persistentContainer.viewContext)
-        book40.author = "Trevino, Leila"
-        book40.genre = "Science fiction"
-        book40.title = "Light in the Lions Den"
-        book40.isbn = "6-73473-052-3"
+//        let book39 = BookMO(context: persistentContainer.viewContext)
+//        book39.author = "Trevino, Leila"
+//        book39.genre = "Science fiction"
+//        book39.title = "Light in the Lions Den"
+//        book39.isbn = "6-73473-052-3"
+//        
+//        let book40 = BookMO(context: persistentContainer.viewContext)
+//        book40.author = "Trevino, Leila"
+//        book40.genre = "Science fiction"
+//        book40.title = "Light in the Lions Den"
+//        book40.isbn = "6-73473-052-3"
         
         saveContext()
         

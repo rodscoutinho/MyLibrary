@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 struct LoanTableViewCellIdentifiers {
     static let finishedLoanCell = "FinishedLoanTableViewCell"
@@ -17,7 +18,9 @@ class LoansViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var loans = [Loan]()
+    var loans = [LoanMO]()
+    
+    var fetchResultController: NSFetchedResultsController<LoanMO>!
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -37,16 +40,52 @@ class LoansViewController: UIViewController {
         
         tableView.estimatedRowHeight = 156
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        let fetchRequest: NSFetchRequest<LoanMO> = LoanMO.fetchRequest()
+        let sortDescriptor1 = NSSortDescriptor(key: "returnDate", ascending: true)
+        let sortDescriptor2 = NSSortDescriptor(key: "expectedReturnDate", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor1, sortDescriptor2]
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
+            
+            do {
+                try fetchResultController.performFetch()
+                if let fetchedObjects = fetchResultController.fetchedObjects {
+                    loans = fetchedObjects
+                }
+            } catch {
+                print(error)
+            }
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        switch segue.identifier! {
+        switch segue.identifier ?? "" {
         case "addLoan":
             
             let navController = segue.destination as! UINavigationController
             let loanViewController = navController.topViewController as! LoanTableViewController
             loanViewController.delegate = self
+            
+        case "editLoan":
+            
+            if let cell = sender {
+                
+                if let indexPath = tableView.indexPath(for: cell as! UITableViewCell) {
+                    let loan = loans[indexPath.row]
+                    
+                    let navController = segue.destination as! UINavigationController
+                    let loanViewController = navController.topViewController as! LoanTableViewController
+                    loanViewController.delegate = self
+                    loanViewController.loanToEdit = loan
+                }
+                
+            }
             
         default:
             break
@@ -60,18 +99,42 @@ class LoansViewController: UIViewController {
 
 extension LoansViewController: LoanTableViewControllerDelegate {
     
-    func loanTableViewController(_ controller: LoanTableViewController, didFinishCreatingLoan loan: Loan) {
+    func loanTableViewController(_ controller: LoanTableViewController, didFinishEditingLoan loan: LoanMO) {
         
-        let indexPath = IndexPath(row: loans.count, section: 0)
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            if let index = loans.index(of: loan) {
+                loans[index] = loan
+                appDelegate.saveContext()
+            }
+        }
         
-        loans.append(loan)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func loanTableViewController(_ controller: LoanTableViewController, didFinishCreatingLoan loan: LoanMO) {
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            appDelegate.saveContext()
+        }
+        
+        dismiss(animated: true, completion: nil)
         
     }
     
 }
 
 extension LoansViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let openLoanCell = tableView.cellForRow(at: indexPath) as? OpenLoanTableViewCell {
+            performSegue(withIdentifier: "editLoan", sender: openLoanCell)
+        } else if let finishedLoanCell = tableView.cellForRow(at: indexPath) as? FinishedLoanTableViewCell {
+            performSegue(withIdentifier: "editLoan", sender: finishedLoanCell)
+        }
+        
+    }
     
 }
 
@@ -88,11 +151,13 @@ extension LoansViewController: UITableViewDataSource {
         
             let cell = tableView.dequeueReusableCell(withIdentifier: LoanTableViewCellIdentifiers.finishedLoanCell, for: indexPath) as! FinishedLoanTableViewCell
             
-            cell.memberLabel.text = loan.member.name
-            cell.loansDescriptionLabel.text = "\(loan.books.count) book(s) borrowed"
-            cell.checkouDate.text = dateFormatter.string(from: loan.loanDate)
-            cell.expectedReturnDate.text = dateFormatter.string(from: loan.expectedReturnDate)
-            cell.returnDate.text = dateFormatter.string(from: loan.returnDate!)
+            cell.memberLabel.text = loan.member!.name
+            cell.loansDescriptionLabel.text = "\(loan.books!.count) book(s) borrowed"
+            cell.checkouDate.text = dateFormatter.string(from: loan.loanDate! as Date)
+            cell.expectedReturnDate.text = dateFormatter.string(from: loan.expectedReturnDate! as Date)
+            cell.returnDate.text = dateFormatter.string(from: loan.returnDate! as Date)
+         
+            cell.selectionStyle = .none
             
             return cell
             
@@ -100,10 +165,12 @@ extension LoansViewController: UITableViewDataSource {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: LoanTableViewCellIdentifiers.openLoanCell, for: indexPath) as! OpenLoanTableViewCell
             
-            cell.memberNameLabel.text = loan.member.name
-            cell.loanDescriptionLabel.text = "\(loan.books.count) book(s) borrowed"
-            cell.checkoutDateLabel.text = dateFormatter.string(from: loan.loanDate)
-            cell.expectedReturnDateLabel.text = dateFormatter.string(from: loan.expectedReturnDate)
+            cell.memberNameLabel.text = loan.member!.name
+            cell.loanDescriptionLabel.text = "\(loan.books!.count) book(s) borrowed"
+            cell.checkoutDateLabel.text = dateFormatter.string(from: loan.loanDate! as Date)
+            cell.expectedReturnDateLabel.text = dateFormatter.string(from: loan.expectedReturnDate! as Date)
+            
+            cell.selectionStyle = .none
             
             return cell
             
@@ -112,3 +179,41 @@ extension LoansViewController: UITableViewDataSource {
     }
     
 }
+
+extension LoansViewController: NSFetchedResultsControllerDelegate {
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        default:
+            tableView.reloadData()
+        }
+        
+        if let fetchObjects = controller.fetchedObjects {
+            loans = fetchObjects as! [LoanMO]
+        }
+        
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+}
+

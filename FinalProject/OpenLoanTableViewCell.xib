@@ -12,11 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OpenLoanTableViewCell" rowHeight="156" id="Izp-CS-YvG" customClass="OpenLoanTableViewCell" customModule="FinalProject" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="156"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OpenLoanTableViewCell" rowHeight="112" id="Izp-CS-YvG" customClass="OpenLoanTableViewCell" customModule="FinalProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Izp-CS-YvG" id="Xt5-aM-QPn">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="156"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="111.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X books" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1a-ru-SvG">
@@ -55,24 +55,13 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kN-iD-zbs">
-                        <rect key="frame" x="102" y="113" width="117" height="33"/>
-                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="117" id="fLT-fm-ecD"/>
-                        </constraints>
-                        <state key="normal" title="Return book(s)">
-                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="yM8-SY-GL7" firstAttribute="top" secondItem="FPE-G0-wKK" secondAttribute="bottom" constant="8" id="0Ai-a6-lKT"/>
                     <constraint firstItem="FPE-G0-wKK" firstAttribute="top" secondItem="j1a-ru-SvG" secondAttribute="bottom" constant="8" id="8JK-YS-gCY"/>
                     <constraint firstItem="j1a-ru-SvG" firstAttribute="top" secondItem="PGJ-Lf-qyG" secondAttribute="bottom" constant="8" id="8j3-Gd-V4O"/>
                     <constraint firstItem="j1a-ru-SvG" firstAttribute="leading" secondItem="Xt5-aM-QPn" secondAttribute="leading" constant="8" id="8m6-c6-Svg"/>
-                    <constraint firstItem="6kN-iD-zbs" firstAttribute="top" secondItem="aSh-0h-aCc" secondAttribute="bottom" constant="8" id="F9v-XP-fDa"/>
-                    <constraint firstItem="6kN-iD-zbs" firstAttribute="centerX" secondItem="Xt5-aM-QPn" secondAttribute="centerX" id="JLI-zF-SGC"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="aSh-0h-aCc" secondAttribute="bottom" constant="-1.5" id="Dne-MO-qvc"/>
                     <constraint firstAttribute="trailing" secondItem="j1a-ru-SvG" secondAttribute="trailing" constant="8" id="KZv-ab-MGT"/>
                     <constraint firstAttribute="leadingMargin" secondItem="ZFm-k8-0g4" secondAttribute="leading" id="WvA-qf-LpW"/>
                     <constraint firstAttribute="leadingMargin" secondItem="aSh-0h-aCc" secondAttribute="leading" id="ZTv-So-ofy"/>
@@ -80,7 +69,6 @@
                     <constraint firstItem="PGJ-Lf-qyG" firstAttribute="leading" secondItem="Xt5-aM-QPn" secondAttribute="leading" constant="8" id="eLQ-Wo-2k7"/>
                     <constraint firstItem="PGJ-Lf-qyG" firstAttribute="top" secondItem="Xt5-aM-QPn" secondAttribute="top" constant="8" id="iiu-so-EJf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="FPE-G0-wKK" secondAttribute="trailing" id="kUg-4i-g6f"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="6kN-iD-zbs" secondAttribute="bottom" constant="1.5" id="l7s-La-NYS"/>
                     <constraint firstItem="aSh-0h-aCc" firstAttribute="top" secondItem="ZFm-k8-0g4" secondAttribute="bottom" constant="8" id="sMO-yJ-wPv"/>
                     <constraint firstItem="ZFm-k8-0g4" firstAttribute="top" secondItem="j1a-ru-SvG" secondAttribute="bottom" constant="8" id="sfT-V5-5HV"/>
                     <constraint firstAttribute="trailing" secondItem="PGJ-Lf-qyG" secondAttribute="trailing" constant="8" id="vNn-P0-UOn"/>
@@ -92,7 +80,7 @@
                 <outlet property="loanDescriptionLabel" destination="j1a-ru-SvG" id="e4Q-5A-xn1"/>
                 <outlet property="memberNameLabel" destination="PGJ-Lf-qyG" id="WAC-40-Mwh"/>
             </connections>
-            <point key="canvasLocation" x="9" y="223"/>
+            <point key="canvasLocation" x="9" y="201"/>
         </tableViewCell>
     </objects>
 </document>

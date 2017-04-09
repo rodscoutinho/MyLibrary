@@ -71,9 +71,14 @@ class AddBookTableViewController: UITableViewController, UIPickerViewDelegate {
             
             titleTextField.text = book.title
             authorTextField.text = book.author
+            isbnTextField.text = book.isbn
             
             if let genreIndex = Genre.allValues.index(of: book.genre!) {
                 genrePickerView.selectRow(genreIndex, inComponent: 0, animated: true)
+            }
+            
+            if let imageData = book.cover, let image = UIImage(data: imageData as Data) {
+                coverImageView.image = image
             }
         }
     }
@@ -93,6 +98,9 @@ class AddBookTableViewController: UITableViewController, UIPickerViewDelegate {
                 book.author = authorTextField.text
                 book.genre = Genre.allValues[genrePickerView.selectedRow(inComponent: 0)]
                 book.isbn = isbnTextField.text
+                if let cover = coverImageView.image {
+                    book.cover = UIImagePNGRepresentation(cover) as NSData?
+                }
                 
                 delegate?.addBookTableViewController(self, didFinishEditing: book)
                 
@@ -116,6 +124,10 @@ class AddBookTableViewController: UITableViewController, UIPickerViewDelegate {
                     book.author = authorTextField.text
                     book.genre = Genre.allValues[genrePickerView.selectedRow(inComponent: 0)]
                     book.isbn = isbnTextField.text
+                    
+                    if let cover = coverImageView.image {
+                        book.cover = UIImagePNGRepresentation(cover) as NSData?
+                    }
                     
                     delegate?.addBookTableViewController(self, didFinishAdding: book)
                     

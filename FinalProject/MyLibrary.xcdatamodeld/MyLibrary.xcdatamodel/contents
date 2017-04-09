@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="BookMO" representedClassName="BookMO" syncable="YES" codeGenerationType="class">
+    <entity name="BookMO" representedClassName="BookMO" syncable="YES">
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cover" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="genre" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isbn" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="loan" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LoanMO" inverseName="books" inverseEntity="LoanMO" syncable="YES"/>
     </entity>
-    <entity name="MemberMO" representedClassName="MemberMO" syncable="YES" codeGenerationType="class">
+    <entity name="LoanMO" representedClassName="LoanMO" syncable="YES">
+        <attribute name="daysOfDelay" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="expectedReturnDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="loanDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="returnDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="BookMO" inverseName="loan" inverseEntity="BookMO" syncable="YES"/>
+        <relationship name="member" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MemberMO" inverseName="loans" inverseEntity="MemberMO" syncable="YES"/>
+    </entity>
+    <entity name="MemberMO" representedClassName="MemberMO" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="loans" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="LoanMO" inverseName="member" inverseEntity="LoanMO" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MemberMO" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="BookMO" positionX="-54" positionY="18" width="128" height="105"/>
+        <element name="BookMO" positionX="-272" positionY="-36" width="128" height="135"/>
+        <element name="LoanMO" positionX="-281" positionY="-279" width="128" height="150"/>
+        <element name="MemberMO" positionX="-56" positionY="-234" width="128" height="118"/>
     </elements>
 </model>

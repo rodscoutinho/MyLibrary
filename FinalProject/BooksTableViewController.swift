@@ -44,6 +44,52 @@ class BooksTableViewController: UITableViewController {
                 print(error)
             }
         }
+        
+        booksUnavailable()
+        removeUnavailableBooksFromBooksCollection()
+    }
+    
+    private func removeUnavailableBooksFromBooksCollection() {
+        guard let booksToRemove = alreadySelectedBooks, booksToRemove.count > 0 else {
+            return
+        }
+        
+        for book in booksToRemove {
+            if let index = booksCollection.index(of: book) {
+                booksCollection.remove(at: index)
+            }
+        }
+    }
+    
+    private func booksUnavailable() {
+    
+        let fetchRequest: NSFetchRequest<LoanMO> = LoanMO.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "expectedReturnDate", ascending: true)
+    
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
+            
+            do {
+                try fetchResultController.performFetch()
+                if let fetchedObjects = fetchResultController.fetchedObjects {
+                    let loans = fetchedObjects
+                    for loan in loans {
+                        if loan.returnDate == nil {
+                            for book in loan.books! {
+                                alreadySelectedBooks?.append(book as! BookMO)
+                            }
+                        }
+                    }
+                }
+            } catch {
+                print(error)
+            }
+        }
+    
     }
     
     @IBAction func cancelBookSelection(_ sender: UIBarButtonItem) {

@@ -48,6 +48,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="NEL-wd-NHe" id="vIN-et-zcz"/>
+                        <segue destination="ERS-Gf-7rU" kind="presentation" identifier="editLoan" id="j34-0F-OYW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -705,6 +706,7 @@
         <image name="no-cover" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="j34-0F-OYW"/>
         <segue reference="JOd-r7-2Ad"/>
         <segue reference="wDw-X9-Ssc"/>
     </inferredMetricsTieBreakers>
